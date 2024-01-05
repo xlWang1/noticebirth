@@ -33,6 +33,7 @@ def sendmessage(name,month_and_day,date):
     with open('./授权码.txt', encoding='utf-8') as i:
         info = i.read()
         info = info.strip().split(',')
+<<<<<<< HEAD
         EMAIL_ADDRESS = info[0] #发送人
         EMAIL_PASSWORD = info[1] #密码
         receive = info[2] #接受人
@@ -52,6 +53,17 @@ def sendmessage(name,month_and_day,date):
     smtp.quit()
     logging.info("Send End!")
 
+=======
+        EMAIL_ADDRESS = info[0] #发送地址
+        EMAIL_PASSWORD = info[1] #密码
+        receive = info[2] #接受地址
+    context = ssl.create_default_context()
+    smtp = smtplib.SMTP_SSL("smtp.163.com", 465, context=context)
+    smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+    subject = "邮件标题"
+    body = "主体"
+    msg = f"Subject: {subject}\n\n{body}"
+>>>>>>> c531b845b6a7ec52ceb72dfe3a88cccf5684fd99
     
 
 if __name__ == '__main__':
