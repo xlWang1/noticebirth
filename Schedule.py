@@ -19,9 +19,13 @@ def Comparison():
     tomorrow = getlunar_day()
     with open('./info.txt',encoding='utf-8') as f:
         for info in f:
-            info = info.strip().split(',')
-            name = info[0]
-            month_and_day = info[1]
+            try:
+                info = info.strip().split(',')
+                name = info[0]
+                month_and_day = info[1]
+            except Exception as e:
+                print(e)
+                break
 
             if info[1] == tomorrow[5:]:
                 date = str(datetime.date.today() + datetime.timedelta(days=1))
@@ -30,7 +34,7 @@ def Comparison():
                 print("nothing")
 
 def sendmessage(name,month_and_day,date):
-    with open('./授权码.txt', encoding='utf-8') as i:
+    with open('./authorization.txt', encoding='utf-8') as i:
         info = i.read()
         info = info.strip().split(',')
         EMAIL_ADDRESS = info[0] #发送人

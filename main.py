@@ -4,10 +4,13 @@
 # @File     :pushwheather.py
 import pushweather
 import Schedule
+import time
 def start_run():
+
     pushweather.GetWxToken()
     pushweather.GetWheatherInfo(['嘉兴市南湖区', '成都市武侯区'])
     Schedule.Comparison()
+
 if __name__ == '__main__':
     start_run()
 
