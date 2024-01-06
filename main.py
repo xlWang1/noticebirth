@@ -5,14 +5,19 @@
 import pushweather
 import Schedule
 import time
-def start_run():
-
-    pushweather.GetWxToken()
-    pushweather.GetWheatherInfo(['嘉兴市南湖区', '成都市武侯区'])
-    Schedule.Comparison()
+def start_run(city):
+    try:
+        pushweather.GetWxToken()
+        pushweather.GetWheatherInfo(city)
+    except Exception as err1:
+        print(err1)
+    try:
+        Schedule.Comparison()
+    except Exception as err2:
+        print(err2)
 
 if __name__ == '__main__':
-    start_run()
+    start_run(['嘉兴市南湖区', '成都市武侯区'])
 
 
 
