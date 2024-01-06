@@ -15,9 +15,9 @@ def getlunar_day():
     lunar_date_tomorrow = "%d-%s%d-%d" % (solar_day.getLunarYear(),
                         '闰' if solar_day.isLunarLeap() else '', solar_day.getLunarMonth(), solar_day.getLunarDay())
     return lunar_date_tomorrow
-def Comparison():
+def Comparison(info_add,author_add):
     tomorrow = getlunar_day()
-    with open('./info.txt',encoding='utf-8') as f:
+    with open(info_add,encoding='utf-8') as f:
         for info in f:
             try:
                 info = info.strip().split(',')
@@ -29,12 +29,12 @@ def Comparison():
 
             if info[1] == tomorrow[5:]:
                 date = str(datetime.date.today() + datetime.timedelta(days=1))
-                sendmessage(name,month_and_day,date)
+                sendmessage(name,month_and_day,date,author_add)
             else:
                 pass
 
-def sendmessage(name,month_and_day,date):
-    with open('./authorization.txt', encoding='utf-8') as i:
+def sendmessage(name,month_and_day,date,addr):
+    with open(addr, encoding='utf-8') as i:
         info = i.read()
         info = info.strip().split(',')
         EMAIL_ADDRESS = info[0] #发送人
@@ -56,6 +56,8 @@ def sendmessage(name,month_and_day,date):
     smtp.quit()
 
 if __name__ == '__main__':
-   Comparison()
+    info_add = './info.txt'
+    author_add = './authorization.txt'
+    Comparison(info_add,author_add)
 
 
