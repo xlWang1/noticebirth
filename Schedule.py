@@ -24,14 +24,14 @@ def Comparison():
                 name = info[0]
                 month_and_day = info[1]
             except Exception as e:
-                print(e)
+
                 break
 
             if info[1] == tomorrow[5:]:
                 date = str(datetime.date.today() + datetime.timedelta(days=1))
                 sendmessage(name,month_and_day,date)
             else:
-                print("nothing")
+                pass
 
 def sendmessage(name,month_and_day,date):
     with open('./authorization.txt', encoding='utf-8') as i:
@@ -51,10 +51,10 @@ def sendmessage(name,month_and_day,date):
     smtp.helo(smtp_server)
     smtp.ehlo(smtp_server)
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-    logging.info("Start send Email....")
+
     smtp.sendmail(EMAIL_ADDRESS, receive, msg.as_string())
     smtp.quit()
-    logging.info("Send End!")
+
 if __name__ == '__main__':
    Comparison()
 
