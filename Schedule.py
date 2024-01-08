@@ -53,6 +53,7 @@ def sendmessage(name,month_and_day,date,addr):
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
     smtp.sendmail(EMAIL_ADDRESS, receive, msg.as_string())
+    print("已发送")
     smtp.quit()
 
 if __name__ == '__main__':
