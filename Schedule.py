@@ -28,7 +28,7 @@ def Comparison(info_add,author_add):
                 break
 
             if info[1] == tomorrow[5:]:
-                date = str(datetime.date.today() + datetime.timedelta(days=1))
+                date = str(datetime.date.today() + datetime.timedelta(days=2))
                 sendmessage(name,month_and_day,date,author_add)
             else:
                 pass
