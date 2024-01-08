@@ -6,7 +6,7 @@ from email.header import Header
 from email.mime.text import MIMEText
 import logging
 def getlunar_day():
-    tomorrow = str(datetime.date.today() + datetime.timedelta(days=1))
+    tomorrow = str(datetime.date.today() + datetime.timedelta(days=2))
     solar_day = tomorrow
     year = int(solar_day[:4])
     month = int(solar_day[5:7])
