@@ -1,4 +1,4 @@
-name: 天气预报推送
+name: 消息推送
 
 on:
   schedule:
