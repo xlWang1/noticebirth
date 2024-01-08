@@ -4,8 +4,9 @@ import smtplib
 import email,ssl
 from email.header import Header
 from email.mime.text import MIMEText
-import logging
+
 def getlunar_day():
+    #UTC时间较北京时间晚了8小时，如果是晚上，则日期晚一天，所以明天需要晚2天
     tomorrow = str(datetime.date.today() + datetime.timedelta(days=2))
     solar_day = tomorrow
     year = int(solar_day[:4])
