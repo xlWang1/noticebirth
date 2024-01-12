@@ -39,7 +39,7 @@ def GetWheatherInfo(city_name):
         global wheather_info
         wheather_info = [date,city,textDay,sunrise,sunset,tempMax,tempMin,windDirDay,windScaleDay,precip]
         if city == "嘉兴市南湖区":
-            open_id = "o4qtq6x4O9_j31Tgnwkp2NU6sbZo"#吴
+            open_id = "o4qtq6x4O9_j31Tgnwkp2NU6sbZo"
         else:
             open_id = "o4qtq6wS9zthnKP8z5f74e1m_vrI"
         SendMessage(open_id)
